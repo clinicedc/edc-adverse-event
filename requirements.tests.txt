@@ -1,0 +1,2 @@
+edc-test-utils
+django-crypto-fields

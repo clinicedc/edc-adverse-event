@@ -1,1 +1,0 @@
-# edc-adverse-event
