@@ -2,7 +2,7 @@ from django.conf import settings
 from django.utils.safestring import mark_safe
 from edc_action_item import ActionWithNotification, site_action_items
 from edc_adverse_event.constants import (
-    AE_INITIAL_ACTION, AE_FOLLOWUP_ACTION, AE_SUSAR_ACTION)
+    AE_INITIAL_ACTION, AE_FOLLOWUP_ACTION, AE_SUSAR_ACTION, DEATH_REPORT_ACTION)
 from edc_constants.constants import (
     DEAD,
     LOST_TO_FOLLOWUP,
@@ -19,12 +19,12 @@ class AeFollowupAction(ActionWithNotification):
     display_name = "Submit AE Followup Report"
     notification_display_name = "AE Followup Report"
     parent_action_names = [AE_INITIAL_ACTION, AE_FOLLOWUP_ACTION]
-    reference_model = "ambition_ae.aefollowup"
-    related_reference_model = "ambition_ae.aeinitial"
+    reference_model = "adverse_event_app.aefollowup"
+    related_reference_model = "adverse_event_app.aeinitial"
     related_reference_fk_attr = "ae_initial"
     create_by_user = False
     show_link_to_changelist = True
-    admin_site_name = "ambition_ae_admin"
+    admin_site_name = "admin"
     instructions = mark_safe(
         f"Upon submission the TMG group will be notified "
         f'by email at <a href="mailto:{settings.EMAIL_CONTACTS.get("tmg") or "#"}">'
