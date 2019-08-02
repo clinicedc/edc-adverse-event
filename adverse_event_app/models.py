@@ -22,3 +22,11 @@ class AeFollowup(AeFollowupModelMixin, BaseUuidModel):
 
     class Meta(AeFollowupModelMixin.Meta):
         pass
+
+
+class AeSusar(AeFollowupModelMixin, BaseUuidModel):
+
+    ae_initial = models.ForeignKey(AeInitial, on_delete=PROTECT)
+
+    class Meta(AeFollowupModelMixin.Meta):
+        pass

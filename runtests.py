@@ -30,6 +30,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         'django_crypto_fields.apps.AppConfig',
         'edc_action_item.apps.AppConfig',
         'edc_adverse_event.apps.AppConfig',
+        'edc_device.apps.AppConfig',
         'edc_facility.apps.AppConfig',
         'edc_notification.apps.AppConfig',
         'edc_registration.apps.AppConfig',
