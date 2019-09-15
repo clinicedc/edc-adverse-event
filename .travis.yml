@@ -1,9 +1,5 @@
 language: python
 
-python:
-- 3.7
-- 3.8
-
 dist: xenial
 
 sudo: true
@@ -33,7 +29,5 @@ matrix:
   include:
     - python: 3.7
       env: TOXENV=py37-django22
-    - python: 3.8
-      env: TOXENV=py38-django22
 ;    - python: 3.7
 ;      env: TOXENV=py37-djangotrunk
