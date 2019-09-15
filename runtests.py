@@ -19,6 +19,8 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     APP_NAME=app_name,
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     SUBJECT_VISIT_MODEL="edc_reference.subjectvisit",
+    ADVERSE_EVENT_APP_LABEL="adverse_event_app",
+    ADVERSE_EVENT_ADMIN_SITE="adverse_event_app_admin",
     INSTALLED_APPS=[
         'django.contrib.admin',
         'django.contrib.auth',
@@ -32,8 +34,12 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         'edc_adverse_event.apps.AppConfig',
         'edc_device.apps.AppConfig',
         'edc_facility.apps.AppConfig',
+        'edc_identifier.apps.AppConfig',
         'edc_notification.apps.AppConfig',
+        'edc_protocol.apps.AppConfig',
         'edc_registration.apps.AppConfig',
+        'edc_sites.apps.AppConfig',
+        'edc_visit_schedule.apps.AppConfig',
         'adverse_event_app.apps.AppConfig',
     ],
     add_dashboard_middleware=True,
@@ -44,7 +50,8 @@ def main():
     if not settings.configured:
         settings.configure(**DEFAULT_SETTINGS)
     django.setup()
-    failures = DiscoverRunner(failfast=True).run_tests(
+    tags = [t.split('=')[1] for t in sys.argv if t.startswith('--tag')]
+    failures = DiscoverRunner(failfast=False, tags=tags).run_tests(
         [f'{app_name}.tests'])
     sys.exit(failures)
 
