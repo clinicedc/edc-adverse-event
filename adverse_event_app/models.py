@@ -15,7 +15,10 @@ from edc_visit_schedule.model_mixins import OnScheduleModelMixin, CurrentSiteMan
 from edc_action_item.models.action_model_mixin import ActionModelMixin
 from edc_identifier.model_mixins.tracking_model_mixin import TrackingModelMixin
 from edc_visit_schedule.model_mixins.off_schedule_model_mixin import OffScheduleModelMixin
-from edc_adverse_event.constants import STUDY_TERMINATION_CONCLUSION_ACTION
+from edc_adverse_event.constants import (
+    DEATH_REPORT_TMG_SECOND_ACTION,
+    STUDY_TERMINATION_CONCLUSION_ACTION,
+)
 
 
 class OnSchedule(OnScheduleModelMixin, BaseUuidModel):
@@ -96,6 +99,14 @@ class DeathReport(DeathReportModelMixin, BaseUuidModel):
 
 
 class DeathReportTmg(DeathReportTmgModelMixin, BaseUuidModel):
+
+    class Meta(DeathReportTmgModelMixin.Meta):
+        pass
+
+
+class DeathReportTmgSecond(DeathReportTmgModelMixin, BaseUuidModel):
+
+    action_name = DEATH_REPORT_TMG_SECOND_ACTION
 
     class Meta(DeathReportTmgModelMixin.Meta):
         pass

@@ -4,7 +4,10 @@ from edc_utils import get_utcnow
 from faker import Faker
 from model_mommy.recipe import Recipe
 
-from .models import AeInitial, AeTmg, AeFollowup, AeSusar
+from .models import (
+    AeInitial, AeTmg, AeFollowup, AeSusar,
+    DeathReport, DeathReportTmg, DeathReportTmgSecond,
+)
 
 fake = Faker()
 
@@ -32,3 +35,19 @@ aesusar = Recipe(AeSusar, action_identifier=None, tracking_identifier=None)
 aefollowup = Recipe(
     AeFollowup, relevant_history=NO, action_identifier=None, tracking_identifier=None
 )
+
+
+deathreport = Recipe(DeathReport, action_identifier=None,
+                     tracking_identifier=None)
+
+
+deathreporttmg = Recipe(
+    DeathReportTmg,
+    action_identifier=None,
+    tracking_identifier=None)
+
+
+deathreporttmgsecond = Recipe(
+    DeathReportTmgSecond,
+    action_identifier=None,
+    tracking_identifier=None)

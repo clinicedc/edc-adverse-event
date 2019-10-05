@@ -1,7 +1,7 @@
 from edc_action_item import site_action_items
 from edc_adverse_event.action_items import (
     AeFollowupAction, AeSusarAction, AeInitialAction, AeTmgAction,
-    DeathReportAction, DeathReportTmgAction,
+    DeathReportAction, DeathReportTmgAction, DeathReportTmgSecondAction,
 )
 from edc_adverse_event.constants import DEATH_REPORT_ACTION, AE_FOLLOWUP_ACTION,\
     STUDY_TERMINATION_CONCLUSION_ACTION
@@ -29,4 +29,5 @@ site_action_items.register(AeSusarAction)
 site_action_items.register(AeTmgAction)
 site_action_items.register(DeathReportAction)
 site_action_items.register(DeathReportTmgAction)
+site_action_items.register(DeathReportTmgSecondAction)
 site_action_items.register(StudyTerminationConclusionAction)
