@@ -19,6 +19,31 @@ from edc_adverse_event.constants import (
     DEATH_REPORT_TMG_SECOND_ACTION,
     STUDY_TERMINATION_CONCLUSION_ACTION,
 )
+from edc_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
+from edc_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
+from edc_sites.models import SiteModelMixin
+from edc_utils import get_utcnow
+from edc_consent.model_mixins import ConsentModelMixin
+from edc_consent.field_mixins.personal_fields_mixin import PersonalFieldsMixin
+from edc_consent.field_mixins.identity_fields_mixin import IdentityFieldsMixin
+
+
+class SubjectConsent(
+    ConsentModelMixin,
+    PersonalFieldsMixin,
+    IdentityFieldsMixin,
+    SiteModelMixin,
+    NonUniqueSubjectIdentifierModelMixin,
+    UpdatesOrCreatesRegistrationModelMixin,
+    BaseUuidModel,
+):
+    class Meta(ConsentModelMixin.Meta):
+        pass
+
+
+class CrfOne(NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
+
+    report_datetime = models.DateTimeField(default=get_utcnow)
 
 
 class OnSchedule(OnScheduleModelMixin, BaseUuidModel):
