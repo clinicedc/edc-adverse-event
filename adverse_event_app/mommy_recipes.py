@@ -1,13 +1,33 @@
-from edc_constants.constants import YES, NO, OTHER, NOT_APPLICABLE
+from edc_constants.constants import YES, NO, OTHER, NOT_APPLICABLE, MALE
 from edc_reportable import GRADE4
 from edc_utils import get_utcnow
 from faker import Faker
-from model_mommy.recipe import Recipe
+from model_mommy.recipe import Recipe, seq
 
-from .models import AeInitial, AeTmg, AeFollowup, AeSusar
+from .models import (
+    AeInitial, AeTmg, AeFollowup, AeSusar,
+    DeathReport, DeathReportTmg, DeathReportTmgSecond,
+    SubjectConsent,
+)
+from dateutil.relativedelta import relativedelta
+from django.contrib.sites.models import Site
 
 fake = Faker()
 
+subjectconsent = Recipe(
+    SubjectConsent,
+    consent_datetime=get_utcnow,
+    dob=get_utcnow() - relativedelta(years=25),
+    first_name=fake.first_name,
+    last_name=fake.last_name,
+    initials="AA",
+    gender=MALE,
+    identity=seq("12315678"),
+    confirm_identity=seq("12315678"),
+    identity_type="passport",
+    is_dob_estimated="-",
+    site=Site.objects.get_current(),
+)
 
 aeinitial = Recipe(
     AeInitial,
@@ -32,3 +52,19 @@ aesusar = Recipe(AeSusar, action_identifier=None, tracking_identifier=None)
 aefollowup = Recipe(
     AeFollowup, relevant_history=NO, action_identifier=None, tracking_identifier=None
 )
+
+
+deathreport = Recipe(DeathReport, action_identifier=None,
+                     tracking_identifier=None)
+
+
+deathreporttmg = Recipe(
+    DeathReportTmg,
+    action_identifier=None,
+    tracking_identifier=None)
+
+
+deathreporttmgsecond = Recipe(
+    DeathReportTmgSecond,
+    action_identifier=None,
+    tracking_identifier=None)
