@@ -8,6 +8,7 @@ from edc_adverse_event.model_mixins import (
     AeTmgModelMixin,
     DeathReportModelMixin,
     DeathReportTmgModelMixin,
+    DeathReportTmgSecondModelMixin,
 )
 from edc_identifier.managers import SubjectIdentifierManager
 from edc_model.models import BaseUuidModel, HistoricalRecords
@@ -15,10 +16,7 @@ from edc_visit_schedule.model_mixins import OnScheduleModelMixin, CurrentSiteMan
 from edc_action_item.models.action_model_mixin import ActionModelMixin
 from edc_identifier.model_mixins.tracking_model_mixin import TrackingModelMixin
 from edc_visit_schedule.model_mixins.off_schedule_model_mixin import OffScheduleModelMixin
-from edc_adverse_event.constants import (
-    DEATH_REPORT_TMG_SECOND_ACTION,
-    STUDY_TERMINATION_CONCLUSION_ACTION,
-)
+from edc_adverse_event.constants import STUDY_TERMINATION_CONCLUSION_ACTION
 from edc_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
 from edc_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
 from edc_sites.models import SiteModelMixin
@@ -129,9 +127,7 @@ class DeathReportTmg(DeathReportTmgModelMixin, BaseUuidModel):
         pass
 
 
-class DeathReportTmgSecond(DeathReportTmgModelMixin, BaseUuidModel):
+class DeathReportTmgSecond(DeathReportTmgSecondModelMixin, BaseUuidModel):
 
-    action_name = DEATH_REPORT_TMG_SECOND_ACTION
-
-    class Meta(DeathReportTmgModelMixin.Meta):
+    class Meta(DeathReportTmgSecondModelMixin.Meta):
         pass

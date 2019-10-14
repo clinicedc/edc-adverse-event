@@ -1,4 +1,6 @@
-from edc_constants.constants import YES, NO, OTHER, NOT_APPLICABLE, MALE
+from dateutil.relativedelta import relativedelta
+from django.contrib.sites.models import Site
+from edc_constants.constants import YES, NO, NOT_APPLICABLE, MALE
 from edc_reportable import GRADE4
 from edc_utils import get_utcnow
 from faker import Faker
@@ -9,8 +11,6 @@ from .models import (
     DeathReport, DeathReportTmg, DeathReportTmgSecond,
     SubjectConsent,
 )
-from dateutil.relativedelta import relativedelta
-from django.contrib.sites.models import Site
 
 fake = Faker()
 
