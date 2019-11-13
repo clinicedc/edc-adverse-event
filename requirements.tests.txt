@@ -2,3 +2,5 @@ edc-test-utils
 django-crypto-fields
 edc-action-item
 edc-dashboard
+edc-randomization
+edc-reportable
