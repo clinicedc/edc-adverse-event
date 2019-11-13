@@ -26,8 +26,8 @@ setup(
     zip_safe=False,
     keywords='django edc adverse event',
     install_requires=[
-        "edc_action_item",
-        "edc_reportable",
+        "edc-action-item",
+        "edc-reportable",
     ],
     classifiers=[
         'Environment :: Web Environment',
@@ -40,5 +40,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    python_requires=">=3.7",
+    # python_requires=">=3.7",
 )
