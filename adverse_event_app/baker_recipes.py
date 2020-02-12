@@ -4,7 +4,7 @@ from edc_constants.constants import YES, NO, NOT_APPLICABLE, MALE
 from edc_reportable import GRADE4
 from edc_utils import get_utcnow
 from faker import Faker
-from model_mommy.recipe import Recipe, seq
+from model_bakery.recipe import Recipe, seq
 
 from .models import (
     AeInitial, AeTmg, AeFollowup, AeSusar,
