@@ -3,9 +3,8 @@ from dateutil.relativedelta import relativedelta
 from edc_visit_schedule import VisitSchedule, Schedule, Visit
 from edc_visit_schedule import FormsCollection, Crf
 
-
 crfs = FormsCollection(
-    Crf(show_order=1, model="edc_consent.crfone", required=True))
+    Crf(show_order=1, model="adverse_event_app.crfone", required=True))
 
 visit = Visit(
     code="1000",
@@ -20,7 +19,6 @@ visit = Visit(
     allow_unscheduled=False,
     facility_name="5-day-clinic",
 )
-
 
 schedule = Schedule(
     name="schedule1",

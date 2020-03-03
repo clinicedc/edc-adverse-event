@@ -25,10 +25,7 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords='django edc adverse event',
-    install_requires=[
-        "edc-action-item",
-        "edc-reportable",
-    ],
+    install_requires=[],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
