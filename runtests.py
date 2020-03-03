@@ -1,9 +1,11 @@
 #!/usr/bin/env python
+import arrow
 import django
 import logging
 import os
 import sys
 
+from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.test.runner import DiscoverRunner
 from edc_test_utils import DefaultTestSettings
@@ -20,6 +22,9 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     SUBJECT_VISIT_MODEL="edc_reference.subjectvisit",
     ADVERSE_EVENT_APP_LABEL="adverse_event_app",
     ADVERSE_EVENT_ADMIN_SITE="adverse_event_app_admin",
+    EDC_PROTOCOL_STUDY_OPEN_DATETIME=arrow.utcnow().floor("hour") - relativedelta(years=2),
+    EDC_PROTOCOL_STUDY_CLOSE_DATETIME=arrow.utcnow().ceil("hour") + relativedelta(years=2),
+    EDC_NAVBAR_DEFAULT=app_name,
     INSTALLED_APPS=[
         'django.contrib.admin',
         'django.contrib.auth',
