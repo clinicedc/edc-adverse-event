@@ -1,12 +1,9 @@
 import arrow
 
-from django.apps import apps as django_apps
 from edc_consent.consent import Consent
 from edc_consent.site_consents import site_consents
 from edc_constants.constants import MALE, FEMALE
 from dateutil.relativedelta import relativedelta
-
-edc_protocol = django_apps.get_app_config("edc_protocol")
 
 v1 = Consent(
     "adverse_event_app.subjectconsent",
