@@ -28,6 +28,7 @@ edc-pharmacy
 edc-randomization
 edc-reference
 edc-registration
+edc-reportable
 edc-review-dashboard
 edc-sites
 edc-subject-dashboard
@@ -35,5 +36,3 @@ edc-test-utils
 edc-timepoint
 edc-visit-schedule
 edc-visit-tracking
-faker
-model-bakery
