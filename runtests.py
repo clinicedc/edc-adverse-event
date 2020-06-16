@@ -40,6 +40,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_adverse_event.apps.AppConfig",
         "edc_appointment.apps.AppConfig",
         "edc_consent.apps.AppConfig",
+        "edc_crf.apps.AppConfig",
         "edc_dashboard.apps.AppConfig",
         "edc_device.apps.AppConfig",
         "edc_facility.apps.AppConfig",
