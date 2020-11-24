@@ -55,6 +55,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_registration.apps.AppConfig",
         "edc_sites.apps.AppConfig",
         "edc_timepoint.apps.AppConfig",
+        "edc_visit_tracking.apps.AppConfig",
         "edc_visit_schedule.apps.AppConfig",
         "adverse_event_app.apps.AppConfig",
     ],
