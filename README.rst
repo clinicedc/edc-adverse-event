@@ -109,7 +109,7 @@ The AE action items are not registered by default. To register, in the root of y
 
 .. |actions| image:: https://github.com/clinicedc/edc-adverse-event/workflows/build/badge.svg?branch=develop
   :target: https://github.com/clinicedc/edc-adverse-event/actions?query=workflow:build
-    
+
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-adverse-event/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-adverse-event
 
