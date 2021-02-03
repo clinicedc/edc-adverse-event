@@ -1,10 +1,7 @@
 from dateutil.relativedelta import relativedelta
+from edc_visit_schedule import Crf, FormsCollection, Schedule, Visit, VisitSchedule
 
-from edc_visit_schedule import VisitSchedule, Schedule, Visit
-from edc_visit_schedule import FormsCollection, Crf
-
-crfs = FormsCollection(
-    Crf(show_order=1, model="adverse_event_app.crfone", required=True))
+crfs = FormsCollection(Crf(show_order=1, model="adverse_event_app.crfone", required=True))
 
 visit = Visit(
     code="1000",
