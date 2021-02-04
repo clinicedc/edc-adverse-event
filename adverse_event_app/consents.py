@@ -1,9 +1,8 @@
 import arrow
-
+from dateutil.relativedelta import relativedelta
 from edc_consent.consent import Consent
 from edc_consent.site_consents import site_consents
-from edc_constants.constants import MALE, FEMALE
-from dateutil.relativedelta import relativedelta
+from edc_constants.constants import FEMALE, MALE
 
 v1 = Consent(
     "adverse_event_app.subjectconsent",

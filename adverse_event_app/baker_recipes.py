@@ -1,14 +1,19 @@
 from dateutil.relativedelta import relativedelta
 from django.contrib.sites.models import Site
-from edc_constants.constants import YES, NO, NOT_APPLICABLE, MALE
+from edc_constants.constants import MALE, NO, NOT_APPLICABLE, YES
 from edc_reportable import GRADE4
 from edc_utils import get_utcnow
 from faker import Faker
 from model_bakery.recipe import Recipe, seq
 
 from .models import (
-    AeInitial, AeTmg, AeFollowup, AeSusar,
-    DeathReport, DeathReportTmg, DeathReportTmgSecond,
+    AeFollowup,
+    AeInitial,
+    AeSusar,
+    AeTmg,
+    DeathReport,
+    DeathReportTmg,
+    DeathReportTmgSecond,
     SubjectConsent,
 )
 
@@ -54,17 +59,12 @@ aefollowup = Recipe(
 )
 
 
-deathreport = Recipe(DeathReport, action_identifier=None,
-                     tracking_identifier=None)
+deathreport = Recipe(DeathReport, action_identifier=None, tracking_identifier=None)
 
 
-deathreporttmg = Recipe(
-    DeathReportTmg,
-    action_identifier=None,
-    tracking_identifier=None)
+deathreporttmg = Recipe(DeathReportTmg, action_identifier=None, tracking_identifier=None)
 
 
 deathreporttmgsecond = Recipe(
-    DeathReportTmgSecond,
-    action_identifier=None,
-    tracking_identifier=None)
+    DeathReportTmgSecond, action_identifier=None, tracking_identifier=None
+)

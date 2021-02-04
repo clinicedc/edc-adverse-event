@@ -1,10 +1,10 @@
 from django.contrib import admin
+from edc_model_admin import SimpleHistoryAdmin
 
 from edc_adverse_event.modeladmin_mixins import (
-    AeInitialModelAdminMixin,
     AeFollowupModelAdminMixin,
+    AeInitialModelAdminMixin,
 )
-from edc_model_admin import SimpleHistoryAdmin
 
 from .models import AeFollowup, AeInitial
 
