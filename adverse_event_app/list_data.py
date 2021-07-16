@@ -1,5 +1,4 @@
 from edc_constants.constants import DEAD, MALIGNANCY, NOT_APPLICABLE, OTHER, UNKNOWN
-from edc_list_data import PreloadData
 
 list_data = {
     "edc_adverse_event.causeofdeath": [
@@ -47,5 +46,3 @@ list_data = {
         ),
     ],
 }
-
-preload_data = PreloadData(list_data=list_data, model_data={}, unique_field_data=None)
