@@ -19,7 +19,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     BASE_DIR=base_dir,
     APP_NAME=app_name,
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
-    SUBJECT_VISIT_MODEL="edc_reference.subjectvisit",
+    SUBJECT_VISIT_MODEL="adverse_event_app.subjectvisit",
     ADVERSE_EVENT_APP_LABEL="adverse_event_app",
     ADVERSE_EVENT_ADMIN_SITE="adverse_event_app_admin",
     EDC_PROTOCOL_STUDY_OPEN_DATETIME=arrow.utcnow().floor("hour") - relativedelta(years=2),

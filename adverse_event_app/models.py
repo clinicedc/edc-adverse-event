@@ -42,6 +42,11 @@ class SubjectConsent(
         pass
 
 
+class SubjectVisit(NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
+
+    report_datetime = models.DateTimeField(default=get_utcnow)
+
+
 class CrfOne(NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
 
     report_datetime = models.DateTimeField(default=get_utcnow)
