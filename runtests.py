@@ -9,6 +9,7 @@ import django
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.test.runner import DiscoverRunner
+from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings
 
 app_name = "edc_adverse_event"
@@ -25,6 +26,9 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     EDC_PROTOCOL_STUDY_OPEN_DATETIME=arrow.utcnow().floor("hour") - relativedelta(years=2),
     EDC_PROTOCOL_STUDY_CLOSE_DATETIME=arrow.utcnow().ceil("hour") + relativedelta(years=2),
     EDC_NAVBAR_DEFAULT=app_name,
+    EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
+    EDC_AUTH_SKIP_SITE_AUTHS=True,
+    EDC_AUTH_SKIP_AUTH_UPDATER=True,
     INSTALLED_APPS=[
         "django.contrib.admin",
         "django.contrib.auth",
@@ -34,6 +38,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "django.contrib.staticfiles",
         "django.contrib.sites",
         "django_crypto_fields.apps.AppConfig",
+        "edc_auth.apps.AppConfig",
         "edc_action_item.apps.AppConfig",
         "edc_adverse_event.apps.AppConfig",
         "edc_appointment.apps.AppConfig",
@@ -43,7 +48,9 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_device.apps.AppConfig",
         "edc_facility.apps.AppConfig",
         "edc_identifier.apps.AppConfig",
+        "edc_locator.apps.AppConfig",
         "edc_metadata.apps.AppConfig",
+        "edc_navbar.apps.AppConfig",
         "edc_notification.apps.AppConfig",
         "edc_offstudy.apps.AppConfig",
         "edc_prn.apps.AppConfig",
