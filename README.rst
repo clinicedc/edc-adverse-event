@@ -13,13 +13,19 @@ Adverse events models
 
 Model mixins exist for you to create the following concrete models in your AE app:
 
-* AE Initial
-* AE Followup
+* AE Initial: The initial report of a adverse event
+* AE Followup: 1 or more follow-ups to the initial AE report
 * AE Special Interest
 * AE SUSAR
 * AE External Reviewer
 * Death Report
 * Death Report External Reviewer
+
+TMG: Trial Management Group forms
+
+* AE Tmg:
+
+
 
 Settings
 --------
