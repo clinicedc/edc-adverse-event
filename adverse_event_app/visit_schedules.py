@@ -9,6 +9,7 @@ visit = Visit(
     rbase=relativedelta(days=0),
     rlower=relativedelta(days=0),
     rupper=relativedelta(days=6),
+    title="Baseline",
     requisitions=None,
     crfs=crfs,
     requisitions_unscheduled=None,
