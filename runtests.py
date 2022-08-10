@@ -4,13 +4,13 @@ import os
 import sys
 from os.path import abspath, dirname
 
-import arrow
 import django
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.test.runner import DiscoverRunner
 from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings
+from edc_utils import get_utcnow
 
 app_name = "edc_adverse_event"
 base_dir = dirname(abspath(__file__))
@@ -23,8 +23,14 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     SUBJECT_VISIT_MODEL="adverse_event_app.subjectvisit",
     ADVERSE_EVENT_APP_LABEL="adverse_event_app",
     ADVERSE_EVENT_ADMIN_SITE="adverse_event_app_admin",
-    EDC_PROTOCOL_STUDY_OPEN_DATETIME=arrow.utcnow().floor("hour") - relativedelta(years=2),
-    EDC_PROTOCOL_STUDY_CLOSE_DATETIME=arrow.utcnow().ceil("hour") + relativedelta(years=2),
+    EDC_PROTOCOL_STUDY_OPEN_DATETIME=get_utcnow().replace(
+        microsecond=0, second=0, minute=0, hour=0
+    )
+    - relativedelta(years=2),
+    EDC_PROTOCOL_STUDY_CLOSE_DATETIME=get_utcnow().replace(
+        microsecond=999999, second=59, minute=59, hour=11
+    )
+    + relativedelta(years=2),
     EDC_NAVBAR_DEFAULT=app_name,
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     EDC_AUTH_SKIP_SITE_AUTHS=True,
