@@ -6,7 +6,6 @@ from edc_consent.field_mixins.personal_fields_mixin import PersonalFieldsMixin
 from edc_consent.model_mixins import ConsentModelMixin
 from edc_identifier.managers import SubjectIdentifierManager
 from edc_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
-from edc_identifier.model_mixins.tracking_model_mixin import TrackingModelMixin
 from edc_model.models import BaseUuidModel, HistoricalRecords
 from edc_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
 from edc_sites.models import SiteModelMixin
@@ -69,13 +68,9 @@ class OnSchedule(OnScheduleModelMixin, BaseUuidModel):
         pass
 
 
-class StudyTerminationConclusion(
-    ActionModelMixin, TrackingModelMixin, OffScheduleModelMixin, BaseUuidModel
-):
+class StudyTerminationConclusion(ActionModelMixin, OffScheduleModelMixin, BaseUuidModel):
 
     action_name = STUDY_TERMINATION_CONCLUSION_ACTION
-
-    tracking_identifier_prefix = "ST"
 
     subject_identifier = models.CharField(max_length=50, unique=True)
 

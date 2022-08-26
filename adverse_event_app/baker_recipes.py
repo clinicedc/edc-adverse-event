@@ -37,7 +37,6 @@ subjectconsent = Recipe(
 aeinitial = Recipe(
     AeInitial,
     action_identifier=None,
-    tracking_identifier=None,
     ae_description="A description of this event",
     ae_grade=GRADE4,
     ae_study_relation_possibility=YES,
@@ -50,21 +49,17 @@ aeinitial = Recipe(
     ae_cause_other=None,
 )
 
-aetmg = Recipe(AeTmg, action_identifier=None, tracking_identifier=None)
+aetmg = Recipe(AeTmg, action_identifier=None)
 
-aesusar = Recipe(AeSusar, action_identifier=None, tracking_identifier=None)
+aesusar = Recipe(AeSusar, action_identifier=None)
 
-aefollowup = Recipe(
-    AeFollowup, relevant_history=NO, action_identifier=None, tracking_identifier=None
-)
+aefollowup = Recipe(AeFollowup, relevant_history=NO, action_identifier=None)
 
 
-deathreport = Recipe(DeathReport, action_identifier=None, tracking_identifier=None)
+deathreport = Recipe(DeathReport, action_identifier=None)
 
 
-deathreporttmg = Recipe(DeathReportTmg, action_identifier=None, tracking_identifier=None)
+deathreporttmg = Recipe(DeathReportTmg, action_identifier=None)
 
 
-deathreporttmgsecond = Recipe(
-    DeathReportTmgSecond, action_identifier=None, tracking_identifier=None
-)
+deathreporttmgsecond = Recipe(DeathReportTmgSecond, action_identifier=None)
