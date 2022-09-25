@@ -14,6 +14,7 @@ from edc_visit_schedule.model_mixins import CurrentSiteManager, OnScheduleModelM
 from edc_visit_schedule.model_mixins.off_schedule_model_mixin import (
     OffScheduleModelMixin,
 )
+from edc_visit_tracking.model_mixins import VisitModelMixin
 
 from edc_adverse_event.constants import STUDY_TERMINATION_CONCLUSION_ACTION
 from edc_adverse_event.model_mixins import (
@@ -41,9 +42,9 @@ class SubjectConsent(
         pass
 
 
-class SubjectVisit(NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
+class SubjectVisit(VisitModelMixin, BaseUuidModel):
 
-    report_datetime = models.DateTimeField(default=get_utcnow)
+    pass
 
 
 class CrfOne(NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
