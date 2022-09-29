@@ -4,11 +4,9 @@ from edc_action_item.models.action_model_mixin import ActionModelMixin
 from edc_consent.field_mixins.identity_fields_mixin import IdentityFieldsMixin
 from edc_consent.field_mixins.personal_fields_mixin import PersonalFieldsMixin
 from edc_consent.model_mixins import ConsentModelMixin
-from edc_identifier.managers import SubjectIdentifierManager
 from edc_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
-from edc_model.models import BaseUuidModel, HistoricalRecords
+from edc_model.models import BaseUuidModel
 from edc_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
-from edc_sites.models import CurrentSiteManager as BaseCurrentSiteManager
 from edc_sites.models import SiteModelMixin
 from edc_utils import get_utcnow
 from edc_visit_schedule.model_mixins import OnScheduleModelMixin
@@ -30,18 +28,11 @@ from edc_adverse_event.model_mixins import (
 )
 
 
-class CurrentSiteManager(BaseCurrentSiteManager):
-    use_in_migrations = True
-
-    def get_by_natural_key(self, subject_identifier):
-        return self.get(subject_identifier=subject_identifier)
-
-
 class SubjectConsent(
+    SiteModelMixin,
     ConsentModelMixin,
     PersonalFieldsMixin,
     IdentityFieldsMixin,
-    SiteModelMixin,
     NonUniqueSubjectIdentifierModelMixin,
     UpdatesOrCreatesRegistrationModelMixin,
     BaseUuidModel,
@@ -50,25 +41,19 @@ class SubjectConsent(
         pass
 
 
-class SubjectVisit(VisitModelMixin, BaseUuidModel):
+class SubjectVisit(SiteModelMixin, VisitModelMixin, BaseUuidModel):
 
     pass
 
 
-class CrfOne(NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
+class CrfOne(SiteModelMixin, NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
 
     report_datetime = models.DateTimeField(default=get_utcnow)
 
 
-class OnSchedule(OnScheduleModelMixin, BaseUuidModel):
+class OnSchedule(SiteModelMixin, OnScheduleModelMixin, BaseUuidModel):
 
     """A model used by the system. Auto-completed by subject_consent."""
-
-    on_site = CurrentSiteManager()
-
-    objects = SubjectIdentifierManager()
-
-    history = HistoricalRecords()
 
     def put_on_schedule(self):
         pass
@@ -77,7 +62,9 @@ class OnSchedule(OnScheduleModelMixin, BaseUuidModel):
         pass
 
 
-class StudyTerminationConclusion(ActionModelMixin, OffScheduleModelMixin, BaseUuidModel):
+class StudyTerminationConclusion(
+    SiteModelMixin, ActionModelMixin, OffScheduleModelMixin, BaseUuidModel
+):
 
     action_name = STUDY_TERMINATION_CONCLUSION_ACTION
 
