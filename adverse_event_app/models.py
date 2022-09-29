@@ -8,9 +8,10 @@ from edc_identifier.managers import SubjectIdentifierManager
 from edc_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
 from edc_model.models import BaseUuidModel, HistoricalRecords
 from edc_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
+from edc_sites.models import CurrentSiteManager as BaseCurrentSiteManager
 from edc_sites.models import SiteModelMixin
 from edc_utils import get_utcnow
-from edc_visit_schedule.model_mixins import CurrentSiteManager, OnScheduleModelMixin
+from edc_visit_schedule.model_mixins import OnScheduleModelMixin
 from edc_visit_schedule.model_mixins.off_schedule_model_mixin import (
     OffScheduleModelMixin,
 )
@@ -27,6 +28,13 @@ from edc_adverse_event.model_mixins import (
     DeathReportTmgModelMixin,
     DeathReportTmgSecondModelMixin,
 )
+
+
+class CurrentSiteManager(BaseCurrentSiteManager):
+    use_in_migrations = True
+
+    def get_by_natural_key(self, subject_identifier):
+        return self.get(subject_identifier=subject_identifier)
 
 
 class SubjectConsent(
