@@ -16,7 +16,7 @@ py_version = "310"
 skip = [".tox", ".eggs", "migrations"]
 
 [tool.coverage.run]
-parallel = true
+parallel = false
 branch = true
 source = ["edc_adverse_event"]
 
@@ -27,23 +27,28 @@ source = ["edc_adverse_event"]
 show_missing = true
 skip_covered = true
 omit = ["requirements.txt"]
+exclude_lines = [
+  "pragma: no cover",
+  "if TYPE_CHECKING:",
+]
 
 [tool.tox]
 legacy_tox_ini = """
 [tox]
 envlist =
-    py{310}-dj{41,dev},
+    py{310,311}-dj{41,dev},
     lint
 
 isolated_build = true
 
 [gh-actions]
 python =
-    3.10: py310, lint
+    3.10: py310
+    3.11: py311, lint
 
 [gh-actions:env]
 DJANGO =
-    4.1: dj41
+    4.1: dj41, lint
     dev: djdev
 
 [testenv]
@@ -56,7 +61,7 @@ deps =
     djdev: https://github.com/django/django/tarball/main
 
 commands =
-    pip install -U pip
+    pip install -U pip coverage[toml]
     pip --version
     pip freeze
     coverage run -a runtests.py
