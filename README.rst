@@ -58,9 +58,9 @@ The list model tables are:
 
     list_data = {
         "edc_adverse_event.aeclassification": [
-            ("anaemia", "Anaemia"),
+            (ANAEMIA, "Anaemia"),
             ("diarrhoea", "Diarrhoea"),
-            ("renal_impairment", "Renal impairment"),
+            (RENAL_IMPAIRMENT, "Renal impairment"),
             (OTHER, "Other"),
         ],
         "edc_adverse_event.saereason": [
