@@ -16,7 +16,7 @@ py_version = "310"
 skip = [".tox", ".eggs", "migrations"]
 
 [tool.coverage.run]
-parallel = false
+parallel = true
 branch = true
 source = ["edc_adverse_event"]
 
@@ -61,7 +61,7 @@ deps =
     djdev: https://github.com/django/django/tarball/main
 
 commands =
-    pip install -U pip coverage[toml]
+    pip install -U pip
     pip --version
     pip freeze
     coverage run -a runtests.py
