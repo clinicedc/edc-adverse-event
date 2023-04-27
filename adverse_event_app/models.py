@@ -42,12 +42,10 @@ class SubjectConsent(
 
 
 class SubjectVisit(SiteModelMixin, VisitModelMixin, BaseUuidModel):
-
     pass
 
 
 class CrfOne(SiteModelMixin, NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
-
     report_datetime = models.DateTimeField(default=get_utcnow)
 
 
@@ -65,7 +63,6 @@ class OnSchedule(SiteModelMixin, OnScheduleModelMixin, BaseUuidModel):
 class StudyTerminationConclusion(
     SiteModelMixin, ActionModelMixin, OffScheduleModelMixin, BaseUuidModel
 ):
-
     action_name = STUDY_TERMINATION_CONCLUSION_ACTION
 
     subject_identifier = models.CharField(max_length=50, unique=True)
@@ -80,7 +77,6 @@ class AeInitial(AeInitialModelMixin, BaseUuidModel):
 
 
 class AeFollowup(AeFollowupModelMixin, BaseUuidModel):
-
     ae_initial = models.ForeignKey(AeInitial, on_delete=PROTECT)
 
     class Meta(AeFollowupModelMixin.Meta):
@@ -88,7 +84,6 @@ class AeFollowup(AeFollowupModelMixin, BaseUuidModel):
 
 
 class Aesi(AesiModelMixin, BaseUuidModel):
-
     ae_initial = models.ForeignKey(AeInitial, on_delete=PROTECT)
 
     class Meta(AesiModelMixin.Meta):
@@ -96,7 +91,6 @@ class Aesi(AesiModelMixin, BaseUuidModel):
 
 
 class AeSusar(AeSusarModelMixin, BaseUuidModel):
-
     ae_initial = models.ForeignKey(AeInitial, on_delete=PROTECT)
 
     class Meta(AeSusarModelMixin.Meta):
@@ -104,7 +98,6 @@ class AeSusar(AeSusarModelMixin, BaseUuidModel):
 
 
 class AeTmg(AeTmgModelMixin, BaseUuidModel):
-
     ae_initial = models.ForeignKey(AeInitial, on_delete=PROTECT)
 
     class Meta(AeTmgModelMixin.Meta):

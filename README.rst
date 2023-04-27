@@ -34,9 +34,9 @@ These are the ``settings`` attributes you need to define for ``edc_adverse_event
 
 .. code-block:: python
 
-	# settings.py
+    # settings.py
 
-	...
+    ...
 
     ADVERSE_EVENT_APP_LABEL="edc_adverse_event"  # replace with your AE app label
     ADVERSE_EVENT_ADMIN_SITE="edc_adverse_event_admin"  # replave with your AE app admin site name
@@ -54,37 +54,37 @@ The list model tables are:
 
 .. code-block:: python
 
-	# list_data.py
+    # list_data.py
 
-	list_data = {
-	    "edc_adverse_event.aeclassification": [
-	        ("anaemia", "Anaemia"),
-	        ("diarrhoea", "Diarrhoea"),
-	        ("renal_impairment", "Renal impairment"),
-	        (OTHER, "Other"),
-	    ],
-	    "edc_adverse_event.saereason": [
-	        (NOT_APPLICABLE, "Not applicable"),
-	        (DEAD, "Death"),
-	        ("life_threatening", "Life-threatening"),
-	        ("significant_disability", "Significant disability"),
-	        (
-	            "in-patient_hospitalization",
-	            (
-	                "In-patient hospitalization or prolongation "
-	                "(17 or more days from study inclusion)"
-	            ),
-	        ),
-	        (
-	            "medically_important_event",
-	            "Medically important event (e.g. recurrence of symptoms not requiring admission, "
-	            "Hospital acquired pneumonia)",
-	        ),
-	    ],
-	}
+    list_data = {
+        "edc_adverse_event.aeclassification": [
+            ("anaemia", "Anaemia"),
+            ("diarrhoea", "Diarrhoea"),
+            ("renal_impairment", "Renal impairment"),
+            (OTHER, "Other"),
+        ],
+        "edc_adverse_event.saereason": [
+            (NOT_APPLICABLE, "Not applicable"),
+            (DEAD, "Death"),
+            ("life_threatening", "Life-threatening"),
+            ("significant_disability", "Significant disability"),
+            (
+                "in-patient_hospitalization",
+                (
+                    "In-patient hospitalization or prolongation "
+                    "(17 or more days from study inclusion)"
+                ),
+            ),
+            (
+                "medically_important_event",
+                "Medically important event (e.g. recurrence of symptoms not requiring admission, "
+                "Hospital acquired pneumonia)",
+            ),
+        ],
+    }
 
-	preload_data = PreloadData(
-	    list_data=list_data, model_data={}, unique_field_data=None)
+    preload_data = PreloadData(
+        list_data=list_data, model_data={}, unique_field_data=None)
 
 
 
@@ -96,12 +96,12 @@ The AE action items are not registered by default. To register, in the root of y
 
 .. code-block:: python
 
-	# action_items.py
+    # action_items.py
 
-	from edc_adverse_event.action_items import AeInitialAction
-	from edc_adverse_event.action_items import AeFollowupAction
-	from edc_adverse_event.action_items import AeSusarAction
-	from edc_adverse_event.action_items import AeTmgAction
+    from edc_adverse_event.action_items import AeInitialAction
+    from edc_adverse_event.action_items import AeFollowupAction
+    from edc_adverse_event.action_items import AeSusarAction
+    from edc_adverse_event.action_items import AeTmgAction
 
     site_action_items.register(AeInitialAction)
     site_action_items.register(AeFollowupAction)
@@ -121,4 +121,3 @@ The AE action items are not registered by default. To register, in the root of y
 
 .. |downloads| image:: https://pepy.tech/badge/edc-adverse-event
    :target: https://pepy.tech/project/edc-adverse-event
-
