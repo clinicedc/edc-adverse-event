@@ -1,9 +1,25 @@
-from edc_constants.constants import DEAD, MALIGNANCY, NOT_APPLICABLE, OTHER, UNKNOWN
+from edc_constants.constants import (
+    DEAD,
+    MALIGNANCY,
+    NOT_APPLICABLE,
+    OTHER,
+    TUBERCULOSIS,
+    UNKNOWN,
+)
+from edc_constants.disease_constants import (
+    ANAEMIA,
+    BACTERAEMIA,
+    BACTERIAL_PNEUMONIA,
+    NEUTROPAENIA,
+    PNEUMONIA,
+    RENAL_IMPAIRMENT,
+    THROMBOCYTOPENIA,
+)
 
 list_data = {
     "edc_adverse_event.causeofdeath": [
-        ("bacteraemia", "Bacteraemia"),
-        ("bacterial_pneumonia", "Bacterial pneumonia"),
+        (BACTERAEMIA, "Bacteraemia"),
+        (BACTERIAL_PNEUMONIA, "Bacterial pneumonia"),
         (MALIGNANCY, "Malignancy"),
         ("art_toxicity", "ART toxicity"),
         ("IRIS_non_CM", "IRIS non-CM"),
@@ -12,17 +28,17 @@ list_data = {
         (OTHER, "Other"),
     ],
     "edc_adverse_event.aeclassification": [
-        ("anaemia", "Anaemia"),
+        (ANAEMIA, "Anaemia"),
         ("bacteraemia/sepsis", "Bacteraemia/Sepsis"),
         ("CM_IRIS", "CM IRIS"),
         ("diarrhoea", "Diarrhoea"),
         ("hypokalaemia", "Hypokalaemia"),
-        ("neutropaenia", "Neutropaenia"),
-        ("pneumonia", "Pneumonia"),
-        ("renal_impairment", "Renal impairment"),
+        (NEUTROPAENIA, "Neutropaenia"),
+        (PNEUMONIA, "Pneumonia"),
+        (RENAL_IMPAIRMENT, "Renal impairment"),
         ("respiratory_distress", "Respiratory distress"),
-        ("TB", "TB"),
-        ("thrombocytopenia", "Thrombocytopenia"),
+        (TUBERCULOSIS, "TB"),
+        (THROMBOCYTOPENIA, "Thrombocytopenia"),
         ("thrombophlebitis", "Thrombophlebitis"),
         (OTHER, "Other"),
     ],
