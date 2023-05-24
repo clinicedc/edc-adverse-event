@@ -25,8 +25,6 @@ TMG: Trial Management Group forms
 
 * AE Tmg:
 
-
-
 Settings
 --------
 
@@ -85,8 +83,6 @@ The list model tables are:
 
     preload_data = PreloadData(
         list_data=list_data, model_data={}, unique_field_data=None)
-
-
 
 
 Register AE Action Items
