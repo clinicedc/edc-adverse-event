@@ -21,7 +21,7 @@ fake = Faker()
 
 subjectconsent = Recipe(
     SubjectConsent,
-    consent_datetime=get_utcnow,
+    consent_datetime=get_utcnow() - relativedelta(months=1),
     dob=get_utcnow() + relativedelta(days=5) - relativedelta(years=25),
     first_name=fake.first_name,
     last_name=fake.last_name,
@@ -36,6 +36,7 @@ subjectconsent = Recipe(
 
 aeinitial = Recipe(
     AeInitial,
+    report_datetime=get_utcnow() - relativedelta(days=5),
     action_identifier=None,
     ae_description="A description of this event",
     ae_grade=GRADE4,
@@ -49,17 +50,43 @@ aeinitial = Recipe(
     ae_cause_other=None,
 )
 
-aetmg = Recipe(AeTmg, action_identifier=None)
+aetmg = Recipe(
+    AeTmg,
+    action_identifier=None,
+    report_datetime=get_utcnow(),
+)
 
-aesusar = Recipe(AeSusar, action_identifier=None)
+aesusar = Recipe(
+    AeSusar,
+    action_identifier=None,
+    report_datetime=get_utcnow(),
+)
 
-aefollowup = Recipe(AeFollowup, relevant_history=NO, action_identifier=None)
+aefollowup = Recipe(
+    AeFollowup,
+    relevant_history=NO,
+    action_identifier=None,
+    report_datetime=get_utcnow(),
+)
 
 
-deathreport = Recipe(DeathReport, action_identifier=None)
+deathreport = Recipe(
+    DeathReport,
+    action_identifier=None,
+    report_datetime=get_utcnow(),
+    death_datetime=get_utcnow(),
+)
 
 
-deathreporttmg = Recipe(DeathReportTmg, action_identifier=None)
+deathreporttmg = Recipe(
+    DeathReportTmg,
+    action_identifier=None,
+    report_datetime=get_utcnow(),
+)
 
 
-deathreporttmgsecond = Recipe(DeathReportTmgSecond, action_identifier=None)
+deathreporttmgsecond = Recipe(
+    DeathReportTmgSecond,
+    action_identifier=None,
+    report_datetime=get_utcnow(),
+)
