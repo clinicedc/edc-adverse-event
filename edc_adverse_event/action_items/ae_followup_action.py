@@ -12,13 +12,13 @@ from edc_visit_schedule.utils import (
     get_onschedule_models,
 )
 
-from edc_adverse_event.constants import (
+from ..constants import (
+    ADVERSE_EVENT_ADMIN_SITE,
     AE_FOLLOWUP_ACTION,
     AE_INITIAL_ACTION,
     DEATH_REPORT_ACTION,
 )
-
-from ..constants import ADVERSE_EVENT_ADMIN_SITE, ADVERSE_EVENT_APP_LABEL
+from ..utils import get_adverse_event_app_label
 
 
 class AeFollowupAction(ActionWithNotification):
@@ -31,8 +31,8 @@ class AeFollowupAction(ActionWithNotification):
 
     """
 
-    reference_model = f"{ADVERSE_EVENT_APP_LABEL}.aefollowup"
-    related_reference_model = f"{ADVERSE_EVENT_APP_LABEL}.aeinitial"
+    reference_model = f"{get_adverse_event_app_label()}.aefollowup"
+    related_reference_model = f"{get_adverse_event_app_label()}.aeinitial"
 
     name = AE_FOLLOWUP_ACTION
     display_name = "Submit AE Followup Report"

@@ -4,11 +4,11 @@ from edc_constants.constants import CLOSED, HIGH_PRIORITY, NO, YES
 
 from ..constants import (
     ADVERSE_EVENT_ADMIN_SITE,
-    ADVERSE_EVENT_APP_LABEL,
     DEATH_REPORT_ACTION,
     DEATH_REPORT_TMG_ACTION,
     DEATH_REPORT_TMG_SECOND_ACTION,
 )
+from ..utils import get_adverse_event_app_label
 
 
 class DeathReportTmgAction(ActionWithNotification):
@@ -24,8 +24,8 @@ class DeathReportTmgAction(ActionWithNotification):
     singleton = True
     instructions = format_html("This report is to be completed by the TMG only.")
 
-    reference_model = f"{ADVERSE_EVENT_APP_LABEL}.deathreporttmg"
-    related_reference_model = f"{ADVERSE_EVENT_APP_LABEL}.deathreport"
+    reference_model = f"{get_adverse_event_app_label()}.deathreporttmg"
+    related_reference_model = f"{get_adverse_event_app_label()}.deathreport"
     admin_site_name = ADVERSE_EVENT_ADMIN_SITE
 
     def get_next_actions(self):

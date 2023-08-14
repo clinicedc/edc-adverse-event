@@ -7,12 +7,13 @@ from edc_action_item.modeladmin_mixins import ActionItemModelAdminMixin
 from edc_constants.constants import OTHER
 from edc_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
-from ..get_ae_model import get_ae_model
+from ..utils import get_ae_model
 
 
 class DeathReportTmgModelAdminMixin(
     ModelAdminSubjectDashboardMixin, ActionItemModelAdminMixin
 ):
+    form = None
     fieldsets = (
         (None, {"fields": ("subject_identifier", "death_report", "report_datetime")}),
         (

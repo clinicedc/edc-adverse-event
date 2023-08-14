@@ -12,7 +12,6 @@ from edc_action_item.modeladmin_mixins import ActionItemModelAdminMixin
 from edc_constants.constants import NO, NOT_APPLICABLE, YES
 from edc_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
-from ..forms import AeFollowupForm
 from ..templatetags.edc_adverse_event_extras import (
     format_ae_followup_description,
     select_description_template,
@@ -26,7 +25,7 @@ class AeFollowupModelAdminMixin(
     AdverseEventModelAdminMixin,
     ActionItemModelAdminMixin,
 ):
-    form = AeFollowupForm
+    form = None
 
     fieldsets = (
         (

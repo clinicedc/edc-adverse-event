@@ -7,7 +7,6 @@ from edc_action_item import action_fieldset_tuple
 from edc_action_item.modeladmin_mixins import ActionItemModelAdminMixin
 from edc_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
-from ..forms import AeSusarForm
 from ..templatetags.edc_adverse_event_extras import (
     format_ae_susar_description,
     select_description_template,
@@ -21,7 +20,7 @@ class AeSusarModelAdminMixin(
     AdverseEventModelAdminMixin,
     ActionItemModelAdminMixin,
 ):
-    form = AeSusarForm
+    form = None
 
     search_fields = (
         "subject_identifier",

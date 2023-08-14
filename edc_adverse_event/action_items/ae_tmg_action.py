@@ -2,13 +2,13 @@ from django.utils.html import format_html
 from edc_action_item import ActionWithNotification
 from edc_constants.constants import CLOSED, HIGH_PRIORITY
 
-from edc_adverse_event.constants import (
+from ..constants import (
+    ADVERSE_EVENT_ADMIN_SITE,
     AE_FOLLOWUP_ACTION,
     AE_INITIAL_ACTION,
     AE_TMG_ACTION,
 )
-
-from ..constants import ADVERSE_EVENT_ADMIN_SITE, ADVERSE_EVENT_APP_LABEL
+from ..utils import get_adverse_event_app_label
 
 
 class AeTmgAction(ActionWithNotification):
@@ -16,8 +16,8 @@ class AeTmgAction(ActionWithNotification):
     display_name = "TMG AE Report pending"
     notification_display_name = "TMG AE Report"
     parent_action_names = [AE_INITIAL_ACTION, AE_FOLLOWUP_ACTION, AE_TMG_ACTION]
-    reference_model = f"{ADVERSE_EVENT_APP_LABEL}.aetmg"
-    related_reference_model = f"{ADVERSE_EVENT_APP_LABEL}.aeinitial"
+    reference_model = f"{get_adverse_event_app_label()}.aetmg"
+    related_reference_model = f"{get_adverse_event_app_label()}.aeinitial"
     related_reference_fk_attr = "ae_initial"
     create_by_user = False
     color_style = "info"

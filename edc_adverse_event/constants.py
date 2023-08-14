@@ -1,6 +1,5 @@
 from django.conf import settings
 
-ADVERSE_EVENT_APP_LABEL = getattr(settings, "ADVERSE_EVENT_APP_LABEL", "edc_adverse_event")
 ADVERSE_EVENT_ADMIN_SITE = getattr(
     settings, "ADVERSE_EVENT_ADMIN_SITE", "edc_adverse_event_admin"
 )
@@ -17,6 +16,7 @@ DEATH_REPORT_TMG_ACTION = "submit-death-report-tmg"
 DEATH_REPORT_TMG_SECOND_ACTION = "submit-death-report-tmg-2nd"
 DEFINITELY_RELATED = "definitely_related"
 DISCHARGED = "discharged"
+HOSPITALIZATION_ACTION = "submit-hospitalization-report"
 INPATIENT = "inpatient"
 NOT_RECOVERED = "not_recovered"
 NOT_RELATED = "not_related"

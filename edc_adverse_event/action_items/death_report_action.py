@@ -4,13 +4,13 @@ from edc_action_item import ActionWithNotification
 from edc_constants.constants import HIGH_PRIORITY
 from edc_visit_schedule.utils import get_offschedule_models
 
-from edc_adverse_event.constants import (
+from ..constants import (
+    ADVERSE_EVENT_ADMIN_SITE,
     AE_FOLLOWUP_ACTION,
     AE_INITIAL_ACTION,
     DEATH_REPORT_ACTION,
 )
-
-from ..constants import ADVERSE_EVENT_ADMIN_SITE, ADVERSE_EVENT_APP_LABEL
+from ..utils import get_adverse_event_app_label
 
 
 class DeathReportAction(ActionWithNotification):
@@ -25,8 +25,8 @@ class DeathReportAction(ActionWithNotification):
     dirty_fields = ["cause_of_death"]
     enable_tmg_workflow = True
 
-    reference_model = f"{ADVERSE_EVENT_APP_LABEL}.deathreport"
-    death_report_tmg_model = f"{ADVERSE_EVENT_APP_LABEL}.deathreporttmg"
+    reference_model = f"{get_adverse_event_app_label()}.deathreport"
+    death_report_tmg_model = f"{get_adverse_event_app_label()}.deathreporttmg"
     admin_site_name = ADVERSE_EVENT_ADMIN_SITE
 
     def get_next_actions(self):

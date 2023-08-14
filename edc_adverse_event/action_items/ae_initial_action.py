@@ -2,15 +2,15 @@ from edc_action_item import ActionWithNotification
 from edc_constants.constants import DEAD, HIGH_PRIORITY, NO, YES
 from edc_reportable import GRADE3, GRADE4, GRADE5
 
-from edc_adverse_event.constants import (
+from ..constants import (
+    ADVERSE_EVENT_ADMIN_SITE,
     AE_FOLLOWUP_ACTION,
     AE_INITIAL_ACTION,
     AE_SUSAR_ACTION,
     AE_TMG_ACTION,
     DEATH_REPORT_ACTION,
 )
-
-from ..constants import ADVERSE_EVENT_ADMIN_SITE, ADVERSE_EVENT_APP_LABEL
+from ..utils import get_adverse_event_app_label
 
 
 class AeInitialAction(ActionWithNotification):
@@ -18,7 +18,7 @@ class AeInitialAction(ActionWithNotification):
     display_name = "Submit AE Initial Report"
     notification_display_name = "AE Initial Report"
     parent_action_names = []
-    reference_model = f"{ADVERSE_EVENT_APP_LABEL}.aeinitial"
+    reference_model = f"{get_adverse_event_app_label()}.aeinitial"
     show_link_to_changelist = True
     show_link_to_add = True
     admin_site_name = ADVERSE_EVENT_ADMIN_SITE

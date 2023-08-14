@@ -1,5 +1,8 @@
 from .ae_followup import AeFollowupModelMixin
 from .ae_initial import (
+    AeInitialAeModelMixin,
+    AeInitialFieldsModelMixin,
+    AeInitialMethodsModelMixin,
     AeInitialModelMixin,
     AeInitialSaeModelMixin,
     AeInitialSusarModelMixin,
@@ -25,3 +28,4 @@ from .death_report import (
     DeathReportTmgSecondSiteManager,
     SimpleDeathReportModelMixin,
 )
+from .hospitalization_model_mixin import HospitalizationModelMixin
