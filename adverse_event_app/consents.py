@@ -1,11 +1,11 @@
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
-from edc_consent.consent import Consent
+from edc_consent.consent_definition import ConsentDefinition
 from edc_consent.site_consents import site_consents
 from edc_constants.constants import FEMALE, MALE
 from edc_utils import get_utcnow
 
-v1 = Consent(
+v1 = ConsentDefinition(
     "adverse_event_app.subjectconsent",
     version="1",
     start=getattr(
