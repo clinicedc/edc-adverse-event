@@ -5,7 +5,7 @@ from edc_consent.site_consents import site_consents
 from edc_constants.constants import FEMALE, MALE
 from edc_utils import get_utcnow
 
-v1 = ConsentDefinition(
+consent_v1 = ConsentDefinition(
     "adverse_event_app.subjectconsent",
     version="1",
     start=getattr(
@@ -26,4 +26,4 @@ v1 = ConsentDefinition(
     gender=[MALE, FEMALE],
 )
 
-site_consents.register(v1)
+site_consents.register(consent_v1)
