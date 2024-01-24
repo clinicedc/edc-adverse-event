@@ -1,9 +1,11 @@
 from dateutil.relativedelta import relativedelta
 from edc_visit_schedule.schedule import Schedule
-from edc_visit_schedule.visit import Crf, FormsCollection, Visit
+from edc_visit_schedule.visit import Crf, CrfCollection, Visit
 from edc_visit_schedule.visit_schedule import VisitSchedule
 
-crfs = FormsCollection(Crf(show_order=1, model="adverse_event_app.crfone", required=True))
+from adverse_event_app.consents import consent_v1
+
+crfs = CrfCollection(Crf(show_order=1, model="adverse_event_app.crfone", required=True))
 
 visit = Visit(
     code="1000",
@@ -25,7 +27,7 @@ schedule = Schedule(
     onschedule_model="adverse_event_app.onschedule",
     offschedule_model="adverse_event_app.StudyTerminationConclusion",
     appointment_model="edc_appointment.appointment",
-    consent_model="adverse_event_app.subjectconsent",
+    consent_definitions=[consent_v1],
 )
 
 visit_schedule = VisitSchedule(
