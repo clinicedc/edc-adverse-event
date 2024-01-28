@@ -18,6 +18,12 @@ project_settings = DefaultTestSettings(
     SUBJECT_VISIT_MODEL="adverse_event_app.subjectvisit",
     ADVERSE_EVENT_APP_LABEL="adverse_event_app",
     ADVERSE_EVENT_ADMIN_SITE="adverse_event_app_admin",
+    EMAIL_ENABLED=True,
+    EMAIL_CONTACTS={
+        "ae_reports": "aereports@example.com",
+        "data_manager": "data_manager@example.com",
+        "tmg": "tmg@example.com",
+    },
     EDC_PROTOCOL_STUDY_OPEN_DATETIME=get_utcnow().replace(
         microsecond=0, second=0, minute=0, hour=0
     )
