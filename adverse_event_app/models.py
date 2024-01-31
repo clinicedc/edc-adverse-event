@@ -114,6 +114,6 @@ class DeathReportTmg(DeathReportTmgModelMixin, BaseUuidModel):
         pass
 
 
-class DeathReportTmgSecond(DeathReportTmgSecondModelMixin, BaseUuidModel):
+class DeathReportTmgSecond(DeathReportTmgSecondModelMixin, DeathReportTmg):
     class Meta(DeathReportTmgSecondModelMixin.Meta):
-        pass
+        proxy = True
