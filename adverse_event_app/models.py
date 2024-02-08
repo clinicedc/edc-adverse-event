@@ -50,7 +50,6 @@ class CrfOne(SiteModelMixin, NonUniqueSubjectIdentifierModelMixin, BaseUuidModel
 
 
 class OnSchedule(SiteModelMixin, OnScheduleModelMixin, BaseUuidModel):
-
     """A model used by the system. Auto-completed by subject_consent."""
 
     def put_on_schedule(self):
