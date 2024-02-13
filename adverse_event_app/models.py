@@ -42,7 +42,9 @@ class SubjectConsent(
 
 
 class SubjectVisit(SiteModelMixin, VisitModelMixin, BaseUuidModel):
-    pass
+    appointment = models.OneToOneField(
+        "edc_appointment.appointment", on_delete=PROTECT, related_name="ae_appointment"
+    )
 
 
 class CrfOne(SiteModelMixin, NonUniqueSubjectIdentifierModelMixin, BaseUuidModel):
