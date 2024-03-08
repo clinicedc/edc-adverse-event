@@ -6,7 +6,7 @@ from edc_constants.constants import FEMALE, MALE
 from edc_utils import get_utcnow
 
 consent_v1 = ConsentDefinition(
-    "adverse_event_app.subjectconsent",
+    "adverse_event_app.subjectconsentv1",
     version="1",
     start=getattr(
         settings,

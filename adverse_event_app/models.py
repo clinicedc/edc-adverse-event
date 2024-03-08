@@ -41,6 +41,11 @@ class SubjectConsent(
         pass
 
 
+class SubjectConsentV1(SubjectConsent):
+    class Meta:
+        proxy = True
+
+
 class SubjectVisit(SiteModelMixin, VisitModelMixin, BaseUuidModel):
     appointment = models.OneToOneField(
         "edc_appointment.appointment", on_delete=PROTECT, related_name="ae_appointment"

@@ -15,12 +15,29 @@ from .models import (
     DeathReportTmg,
     DeathReportTmgSecond,
     SubjectConsent,
+    SubjectConsentV1,
 )
 
 fake = Faker()
 
 subjectconsent = Recipe(
     SubjectConsent,
+    consent_datetime=get_utcnow() - relativedelta(months=1),
+    dob=get_utcnow() + relativedelta(days=5) - relativedelta(years=25),
+    first_name=fake.first_name,
+    last_name=fake.last_name,
+    initials="AA",
+    gender=MALE,
+    identity=seq("12315678"),
+    confirm_identity=seq("12315678"),
+    identity_type="passport",
+    is_dob_estimated="-",
+    site=Site.objects.get_current(),
+)
+
+
+subjectconsentv1 = Recipe(
+    SubjectConsentV1,
     consent_datetime=get_utcnow() - relativedelta(months=1),
     dob=get_utcnow() + relativedelta(days=5) - relativedelta(years=25),
     first_name=fake.first_name,
