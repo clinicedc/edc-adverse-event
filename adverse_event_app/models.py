@@ -3,6 +3,7 @@ from django.db.models.deletion import PROTECT
 from edc_action_item.models.action_model_mixin import ActionModelMixin
 from edc_consent.field_mixins.identity_fields_mixin import IdentityFieldsMixin
 from edc_consent.field_mixins.personal_fields_mixin import PersonalFieldsMixin
+from edc_consent.managers import ConsentObjectsByCdefManager, CurrentSiteByCdefManager
 from edc_consent.model_mixins import ConsentModelMixin
 from edc_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
 from edc_model.models import BaseUuidModel
@@ -42,6 +43,9 @@ class SubjectConsent(
 
 
 class SubjectConsentV1(SubjectConsent):
+    objects = ConsentObjectsByCdefManager()
+    on_site = CurrentSiteByCdefManager()
+
     class Meta:
         proxy = True
 
