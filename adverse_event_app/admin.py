@@ -4,9 +4,10 @@ from edc_model_admin.history import SimpleHistoryAdmin
 from edc_adverse_event.modeladmin_mixins import (
     AeFollowupModelAdminMixin,
     AeInitialModelAdminMixin,
+    HospitalizationModelAdminMixin,
 )
 
-from .models import AeFollowup, AeInitial
+from .models import AeFollowup, AeInitial, Hospitalization
 
 
 @admin.register(AeInitial)
@@ -16,4 +17,9 @@ class AeInitialAdmin(AeInitialModelAdminMixin, SimpleHistoryAdmin):
 
 @admin.register(AeFollowup)
 class AeFollowupAdmin(AeFollowupModelAdminMixin, SimpleHistoryAdmin):
+    pass
+
+
+@admin.register(Hospitalization)
+class HospitalizationAdmin(HospitalizationModelAdminMixin, SimpleHistoryAdmin):
     pass

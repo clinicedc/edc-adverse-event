@@ -26,6 +26,7 @@ from edc_adverse_event.model_mixins import (
     DeathReportModelMixin,
     DeathReportTmgModelMixin,
     DeathReportTmgSecondModelMixin,
+    HospitalizationModelMixin,
 )
 
 
@@ -124,3 +125,10 @@ class DeathReportTmg(DeathReportTmgModelMixin, BaseUuidModel):
 class DeathReportTmgSecond(DeathReportTmgSecondModelMixin, DeathReportTmg):
     class Meta(DeathReportTmgSecondModelMixin.Meta):
         proxy = True
+
+
+class Hospitalization(
+    HospitalizationModelMixin, ActionModelMixin, SiteModelMixin, BaseUuidModel
+):
+    class Meta(HospitalizationModelMixin.Meta):
+        pass
