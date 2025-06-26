@@ -1,7 +1,6 @@
 from dateutil.relativedelta import relativedelta
 from django.contrib.sites.models import Site
-from edc_constants.constants import MALE, NO, NOT_APPLICABLE, YES
-from edc_reportable import GRADE4
+from edc_constants.constants import GRADE4, MALE, NO, NOT_APPLICABLE, YES
 from edc_utils import get_utcnow
 from faker import Faker
 from model_bakery.recipe import Recipe, seq
