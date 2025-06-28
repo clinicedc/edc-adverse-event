@@ -44,10 +44,16 @@ envlist = [
 isolated_build = true
 
 [tool.tox.gh-actions]
-python = { "3.12" = ["py312", "lint", "pre-commit"], "3.13" = ["py313"] }
+python = [
+  "3.12: py312, lint, pre-commit",
+  "3.13: py313"
+]
 
 [tool.tox.gh-actions.env]
-DJANGO = { "5.2" = ["dj52", "lint", "pre-commit"], "dev" = ["djdev"] }
+DJANGO = [
+  "5.2: dj52, lint, pre-commit",
+  "dev: djdev"
+]
 
 [tool.tox.envs.default]
 deps = [
