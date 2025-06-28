@@ -43,7 +43,6 @@ envlist = [
 ]
 isolated_build = true
 
-
 [tool.tox.gh-actions]
 python = """
 3.12: py312, lint, pre-commit

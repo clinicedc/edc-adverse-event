@@ -60,7 +60,7 @@ jobs:
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
           key:
-            ${{ matrix.python-version }}-v1-${{ hashFiles('**/setup.py') }}-${{ hashFiles('**/tox.ini') }}
+            ${{ matrix.python-version }}-v1-${{ hashFiles('**/setup.py') }}-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: |
             ${{ matrix.python-version }}-v1-
 
