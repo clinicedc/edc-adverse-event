@@ -7,14 +7,15 @@ from edc_test_settings.default_test_settings import DefaultTestSettings
 from edc_utils import get_utcnow
 
 app_name = "edc_adverse_event"
-base_dir = Path(__file__).absolute().parent.parent.parent
+base_dir = Path(__file__).absolute().parent.parent
 
 project_settings = DefaultTestSettings(
     calling_file=__file__,
     BASE_DIR=base_dir,
     APP_NAME=app_name,
-    ETC_DIR=str(base_dir / app_name / "tests" / "etc"),
-    HOLIDAY_FILE=base_dir / app_name / "tests" / "etc" / "holidays.csv",
+    ETC_DIR=str(base_dir / "tests" / "etc"),
+    DJANGO_REVISION_IGNORE_WORKING_DIR=True,
+    HOLIDAY_FILE=base_dir / "tests" / "holidays.csv",
     SILENCED_SYSTEM_CHECKS=["sites.E101", "edc_navbar.E002", "edc_navbar.E003"],
     SUBJECT_VISIT_MODEL="adverse_event_app.subjectvisit",
     ADVERSE_EVENT_APP_LABEL="adverse_event_app",

@@ -11,13 +11,13 @@ from edc_visit_schedule.utils import (
     get_onschedule_models,
 )
 
-from edc_adverse_event.constants import (
+from ..constants import (
+    ADVERSE_EVENT_ADMIN_SITE,
+    ADVERSE_EVENT_APP_LABEL,
     AE_FOLLOWUP_ACTION,
     AE_INITIAL_ACTION,
     DEATH_REPORT_ACTION,
 )
-
-from ..constants import ADVERSE_EVENT_ADMIN_SITE, ADVERSE_EVENT_APP_LABEL
 
 
 class AeFollowupAction(ActionWithNotification):

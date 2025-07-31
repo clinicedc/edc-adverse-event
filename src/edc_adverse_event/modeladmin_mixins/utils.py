@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
     from .modeladmin_mixins import AdverseEventModelAdminMixin
 
-    class ModelAdmin(AdverseEventModelAdminMixin, admin.ModelAdmin): ...
+    class ModelAdmin(AdverseEventModelAdminMixin, admin.ModelAdmin): ...  # noqa
 
     class Model(BaseUuidModel):
         report_datetime: datetime
@@ -25,7 +25,8 @@ if TYPE_CHECKING:
 class ColumnItem:
     """Prepare a label and url for use in list_display.
 
-    Used my AE modeladmin"""
+    Used my AE modeladmin.
+    """
 
     modeladmin: ModelAdmin = field(compare=False)
     obj: Model = field(compare=False)

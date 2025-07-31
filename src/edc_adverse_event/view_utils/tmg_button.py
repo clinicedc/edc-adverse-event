@@ -10,20 +10,20 @@ if TYPE_CHECKING:
     from edc_action_item.models import ActionItem
     from edc_model.models import BaseUuidModel
 
-    from edc_adverse_event.model_mixins import (
+    from ..model_mixins import (
         AeFollowupModelMixin,
         AeInitialModelMixin,
         DeathReportModelMixin,
         DeathReportTmgModelMixin,
     )
 
-    class AeInitialModel(AeInitialModelMixin, BaseUuidModel): ...
+    class AeInitialModel(AeInitialModelMixin, BaseUuidModel): ...  # noqa
 
-    class AeFollowupModel(AeFollowupModelMixin, BaseUuidModel): ...
+    class AeFollowupModel(AeFollowupModelMixin, BaseUuidModel): ...  # noqa
 
-    class DeathReportTmgModel(DeathReportTmgModelMixin, BaseUuidModel): ...
+    class DeathReportTmgModel(DeathReportTmgModelMixin, BaseUuidModel): ...  # noqa
 
-    class DeathReportModel(DeathReportModelMixin, BaseUuidModel): ...
+    class DeathReportModel(DeathReportModelMixin, BaseUuidModel): ...  # noqa
 
 
 @dataclass

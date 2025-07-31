@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from dateutil.relativedelta import relativedelta
 from django.contrib.sites.models import Site
 from edc_constants.constants import GRADE4, MALE, NO, NOT_APPLICABLE, YES
@@ -31,6 +33,7 @@ subjectconsent = Recipe(
     confirm_identity=seq("12315678"),
     identity_type="passport",
     is_dob_estimated="-",
+    screening_identifier=uuid4(),
     site=Site.objects.get_current(),
 )
 
@@ -47,6 +50,7 @@ subjectconsentv1 = Recipe(
     confirm_identity=seq("12315678"),
     identity_type="passport",
     is_dob_estimated="-",
+    screening_identifier=uuid4(),
     site=Site.objects.get_current(),
 )
 

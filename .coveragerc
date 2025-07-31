@@ -1,4 +1,0 @@
-[run]
-include = edc_adverse_event/*
-omit = edc_adverse_event/tests/*,edc_adverse_event/migrations/*
-branch = 1
