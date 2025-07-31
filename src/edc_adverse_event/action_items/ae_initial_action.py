@@ -1,15 +1,15 @@
 from edc_action_item import ActionWithNotification
 from edc_constants.constants import DEAD, GRADE3, GRADE4, GRADE5, HIGH_PRIORITY, NO, YES
 
-from edc_adverse_event.constants import (
+from ..constants import (
+    ADVERSE_EVENT_ADMIN_SITE,
+    ADVERSE_EVENT_APP_LABEL,
     AE_FOLLOWUP_ACTION,
     AE_INITIAL_ACTION,
     AE_SUSAR_ACTION,
     AE_TMG_ACTION,
     DEATH_REPORT_ACTION,
 )
-
-from ..constants import ADVERSE_EVENT_ADMIN_SITE, ADVERSE_EVENT_APP_LABEL
 
 
 class AeInitialAction(ActionWithNotification):

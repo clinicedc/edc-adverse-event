@@ -8,8 +8,7 @@ from edc_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
 from edc_model.models import ReportStatusModelMixin
 from edc_sites.model_mixins import SiteModelMixin
 
-from edc_adverse_event.constants import AE_SUSAR_ACTION
-
+from ...constants import AE_SUSAR_ACTION
 from .ae_susar_fields_model_mixin import AeSusarFieldsModelMixin
 from .ae_susar_methods_model_mixin import AeSusarMethodsModelMixin
 

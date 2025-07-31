@@ -40,15 +40,15 @@ if TYPE_CHECKING:
         DeathReportTmgModelMixin,
     )
 
-    class DeathReportTmgModel(DeathReportTmgModelMixin, BaseUuidModel): ...
+    class DeathReportTmgModel(DeathReportTmgModelMixin, BaseUuidModel): ...  # noqa
 
-    class DeathReportTmgSecondModel(DeathReportTmgModelMixin, BaseUuidModel): ...
+    class DeathReportTmgSecondModel(DeathReportTmgModelMixin, BaseUuidModel): ...  # noqa
 
-    class AeInitialModel(AeInitialModelMixin, BaseUuidModel): ...
+    class AeInitialModel(AeInitialModelMixin, BaseUuidModel): ...  # noqa
 
-    class AeFollowupModel(AeFollowupModelMixin, BaseUuidModel): ...
+    class AeFollowupModel(AeFollowupModelMixin, BaseUuidModel): ...  # noqa
 
-    class DeathReportModel(DeathReportModelMixin, BaseUuidModel): ...
+    class DeathReportModel(DeathReportModelMixin, BaseUuidModel): ...  # noqa
 
 
 register = template.Library()
